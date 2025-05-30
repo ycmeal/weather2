@@ -4,8 +4,8 @@ class Info extends React.Component {
     render() {
         return (
           <div>
-              <h2>Weather App</h2>
-              <p>About weather</p>
+              <h2 className="info__title">Weather App</h2>
+              <p className="info__subtitle">Stay ahead of the forecast</p>
           </div>
         );
     }
