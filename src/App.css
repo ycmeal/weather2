@@ -33,6 +33,7 @@ body {
   background-position: center;
   background-size: 50%;
   pointer-events: none;
+  animation: float 6s ease-in-out infinite;
 }
 
 .wrapper.sunny::before {
@@ -53,16 +54,16 @@ body {
 
 .info {
   height: 55vh;
-  background-blend-mode: multiply;
-  background-color: #484747;
+  background: linear-gradient(135deg, #485563, #29323c);
   border: 2px solid #1f1f1f;
   border-right: 2px solid #131e29;
   background-size: cover;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #000;
+  color: #fff;
 }
 
 .form {
@@ -72,6 +73,9 @@ body {
   border-top: 2px solid #113a65;
   border-bottom: 2px solid #113a65;
   border-right: 2px solid #113a65;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 input[type="text"] {
@@ -121,14 +125,15 @@ button:active {
   top: 2px;
 }
 
-.info h2 {
+.info__title {
   font-size: 3em;
   color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.info p {
+.info__subtitle {
   color: #e4e4e4;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .infoWeath {
@@ -140,5 +145,15 @@ button:active {
 .error {
   color: #041f3c;
   font-weight: bold;
+}
+
+.temp {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
