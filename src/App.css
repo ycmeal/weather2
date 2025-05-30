@@ -33,6 +33,7 @@ body {
   background-position: right bottom;
   background-size: 20%;
   pointer-events: none;
+  animation: float 6s ease-in-out infinite;
 }
 
 .wrapper.sunny::before {
@@ -150,4 +151,3 @@ button:active {
   font-size: 3rem;
   font-weight: bold;
 }
-
