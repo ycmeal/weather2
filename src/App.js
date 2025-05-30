@@ -43,8 +43,14 @@ class App extends React.Component {
 
 
     render() {
+        const { temp } = this.state;
+        let weatherClass = "";
+        if (typeof temp === "number") {
+            if (temp > 0) weatherClass = "sunny";
+            else if (temp < 0) weatherClass = "snowy";
+        }
         return (
-            <div className="wrapper">
+            <div className={`wrapper ${weatherClass}`}> 
                 <div className="main">
                     <div className="container">
                         <div className="row">

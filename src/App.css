@@ -5,6 +5,7 @@ body {
 }
 
 .wrapper {
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -18,6 +19,28 @@ body {
   background: -ms-linear-gradient(45deg, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
   background: linear-gradient(45deg, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2db0e0', endColorstr='#6028a8', GradientType=1 );
+}
+
+.wrapper.sunny::before,
+.wrapper.snowy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  pointer-events: none;
+}
+
+.wrapper.sunny::before {
+  background-image: url("./assets/sun.svg");
+}
+
+.wrapper.snowy::before {
+  background-image: url("./assets/snow.svg");
 }
 
 .main {
