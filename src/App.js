@@ -26,10 +26,11 @@ class App extends React.Component {
         } else if (e.target.value) {
             city = e.target.value;
         }
-      const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-      const data = await api_url.json();
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+      const data = await response.json();
       console.log(data);
-        if(city) {
+
+      if (city && response.ok) {
           this.setState({
               temp: data.main.temp,
               city: data.name,
@@ -37,6 +38,15 @@ class App extends React.Component {
               sunrise: data.sys.sunrise,
               sunset: data.sys.sunset,
               error: ""
+          });
+      } else if (!response.ok) {
+          this.setState({
+              temp: undefined,
+              city: undefined,
+              country: undefined,
+              sunrise: undefined,
+              sunset: undefined,
+              error: "че за фигню ты мне пишешь"
           });
       }
     }
