@@ -30,8 +30,8 @@ body {
   right: 0;
   bottom: 0;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50%;
+  background-position: right bottom;
+  background-size: 20%;
   pointer-events: none;
   animation: float 6s ease-in-out infinite;
 }
@@ -151,9 +151,3 @@ button:active {
   font-size: 3rem;
   font-weight: bold;
 }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
