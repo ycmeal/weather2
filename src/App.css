@@ -11,14 +11,9 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: rgba(45,176,224,1);
-  background: -moz-linear-gradient(45deg, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
-  background: linear-gradient(to top right, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
-  background: -o-linear-gradient(45deg, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
-  background: -ms-linear-gradient(45deg, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
-  background: linear-gradient(45deg, rgba(45,176,224,1) 0%, rgba(96,40,168,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2db0e0', endColorstr='#6028a8', GradientType=1 );
+  background: linear-gradient(45deg, #2db0e0, #6028a8, #2db0e0);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
 .wrapper.sunny::before,
@@ -30,10 +25,12 @@ body {
   right: 0;
   bottom: 0;
   background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: 20%;
+  background-position: bottom right;
+  background-size: 25%;
   pointer-events: none;
-  animation: float 6s ease-in-out infinite;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite, spin 20s linear infinite;
+
 }
 
 .wrapper.sunny::before {
@@ -129,6 +126,11 @@ button:active {
   font-size: 3em;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+}
+.infoContent {
+  animation: fadeInUp 0.6s ease both;
+
 }
 
 .info__subtitle {
@@ -140,6 +142,7 @@ button:active {
   width: 60%;
   font-size: 20px;
   color: #fff;
+  animation: fadeInUp 0.6s ease both;
 }
 
 .error {
@@ -151,3 +154,25 @@ button:active {
   font-size: 3rem;
   font-weight: bold;
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
