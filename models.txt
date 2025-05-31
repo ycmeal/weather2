@@ -1,0 +1,4 @@
+# List of gift models to track
+# One model per line
+Bear NFC 50 cm
+Rabbit Plush 30 cm

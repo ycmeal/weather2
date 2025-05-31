@@ -1,0 +1,4 @@
+python-telegram-bot>=13.0
+python-dotenv>=1.0
+schedule>=1.0
+tonnelmp>=0.1
