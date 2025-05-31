@@ -68,3 +68,28 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Tonnel Arbitrage Telegram Bot
+
+A simple Python script lives in `bot/tonnel_arbitrage_bot.py` that monitors
+[Tonnel Marketplace](https://market.tonnel.network) for arbitrage opportunities
+and notifies a Telegram chat when a gift is listed significantly below the floor
+price.
+
+### Setup
+
+1. Copy `.env.example` to `.env` and fill in your `TONNEL_API_KEY`,
+   `TG_BOT_TOKEN` and `TG_CHAT_ID`.
+2. Specify models to track in `models.txt` (one per line).
+3. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run the bot:
+   ```bash
+   python bot/tonnel_arbitrage_bot.py
+   ```
+
+The bot checks the marketplace every few minutes (configurable via
+`CHECK_INTERVAL_MINUTES`) and sends formatted messages when it finds an offer
+`ARBITRAGE_THRESHOLD_PERCENT` cheaper than the current floor price.
